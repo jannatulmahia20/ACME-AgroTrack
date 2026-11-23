@@ -1,10 +1,12 @@
 
 import "./App.css";
 import { useState } from "react";
+
 import Products from "./Products";
 import Customers from "./Customers";
 import SalesOrders from "./SalesOrders";
 import Inventory from "./Inventory";
+import Regions from "./Regions";
 
 import {
   LayoutDashboard,
@@ -24,8 +26,10 @@ function App() {
 
   return (
     <div className="app">
+
       {/* Sidebar */}
       <aside className="sidebar">
+
         <div className="brand">
           <div className="brand-icon">A</div>
           <div>
@@ -37,6 +41,7 @@ function App() {
         <p className="menu-label">MAIN MENU</p>
 
         <nav>
+
           {/* Dashboard */}
           <a
             className={`nav-item ${activePage === "Dashboard" ? "active" : ""}`}
@@ -99,9 +104,11 @@ function App() {
             <BarChart3 size={19} />
             Reports
           </a>
+
         </nav>
 
         <div className="sidebar-bottom">
+
           <a
             className={`nav-item ${activePage === "Settings" ? "active" : ""}`}
             onClick={() => setActivePage("Settings")}
@@ -111,7 +118,9 @@ function App() {
           </a>
 
           <p>ACME AgroTrack v1.0</p>
+
         </div>
+
       </aside>
 
       {/* Main Content */}
@@ -119,12 +128,14 @@ function App() {
 
         {/* Topbar */}
         <header className="topbar">
+
           <div>
             <h2>{activePage}</h2>
             <p>Welcome back! Here's what's happening today.</p>
           </div>
 
           <div className="topbar-actions">
+
             <button className="icon-button">
               <Search size={19} />
             </button>
@@ -140,28 +151,34 @@ function App() {
                 <span>Administrator</span>
               </div>
             </div>
+
           </div>
+
         </header>
 
         {/* Dynamic Page Content */}
 
         {activePage === "Products" ? (
 
-<Products />
+          <Products />
 
-) : activePage === "Customers" ? (
+        ) : activePage === "Customers" ? (
 
-<Customers />
+          <Customers />
 
-) : activePage === "Sales Orders" ? (
+        ) : activePage === "Sales Orders" ? (
 
-  <SalesOrders />
-  
-  ) : activePage === "Inventory" ? (
-  
-  <Inventory />
-  
-  ) : activePage === "Dashboard" ? (
+          <SalesOrders />
+
+        ) : activePage === "Inventory" ? (
+
+          <Inventory />
+
+        ) : activePage === "Regions" ? (
+
+          <Regions />
+
+        ) : activePage === "Dashboard" ? (
 
           /* Dashboard */
           <section className="dashboard-body">
@@ -245,6 +262,7 @@ function App() {
                 </div>
 
               </div>
+
             </div>
 
           </section>
@@ -253,6 +271,7 @@ function App() {
 
           /* Placeholder for upcoming modules */
           <section className="dashboard-body">
+
             <div className="page-heading">
               <div>
                 <h1>{activePage}</h1>
@@ -266,11 +285,13 @@ function App() {
                 We will build this module in the upcoming development steps.
               </p>
             </div>
+
           </section>
 
         )}
 
       </main>
+
     </div>
   );
 }
