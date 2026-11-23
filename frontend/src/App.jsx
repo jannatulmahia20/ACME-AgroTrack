@@ -9,6 +9,7 @@ import Inventory from "./Inventory";
 import Regions from "./Regions";
 import Reports from "./Reports";
 import Settings from "./Settings";
+import Landing from "./Landing";
 
 import {
   LayoutDashboard,
@@ -25,6 +26,12 @@ import {
 
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
+  const [showLanding, setShowLanding] = useState(true);
+
+  // Show landing page first
+  if (showLanding) {
+    return <Landing onEnter={() => setShowLanding(false)} />;
+  }
 
   return (
     <div className="app">
@@ -44,7 +51,6 @@ function App() {
 
         <nav>
 
-          {/* Dashboard */}
           <a
             className={`nav-item ${activePage === "Dashboard" ? "active" : ""}`}
             onClick={() => setActivePage("Dashboard")}
@@ -53,7 +59,6 @@ function App() {
             Dashboard
           </a>
 
-          {/* Products */}
           <a
             className={`nav-item ${activePage === "Products" ? "active" : ""}`}
             onClick={() => setActivePage("Products")}
@@ -62,7 +67,6 @@ function App() {
             Products
           </a>
 
-          {/* Customers */}
           <a
             className={`nav-item ${activePage === "Customers" ? "active" : ""}`}
             onClick={() => setActivePage("Customers")}
@@ -71,7 +75,6 @@ function App() {
             Customers
           </a>
 
-          {/* Sales Orders */}
           <a
             className={`nav-item ${activePage === "Sales Orders" ? "active" : ""}`}
             onClick={() => setActivePage("Sales Orders")}
@@ -80,7 +83,6 @@ function App() {
             Sales Orders
           </a>
 
-          {/* Inventory */}
           <a
             className={`nav-item ${activePage === "Inventory" ? "active" : ""}`}
             onClick={() => setActivePage("Inventory")}
@@ -89,7 +91,6 @@ function App() {
             Inventory
           </a>
 
-          {/* Regions */}
           <a
             className={`nav-item ${activePage === "Regions" ? "active" : ""}`}
             onClick={() => setActivePage("Regions")}
@@ -98,7 +99,6 @@ function App() {
             Regions
           </a>
 
-          {/* Reports */}
           <a
             className={`nav-item ${activePage === "Reports" ? "active" : ""}`}
             onClick={() => setActivePage("Reports")}
