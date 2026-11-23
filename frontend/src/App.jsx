@@ -7,6 +7,8 @@ import Customers from "./Customers";
 import SalesOrders from "./SalesOrders";
 import Inventory from "./Inventory";
 import Regions from "./Regions";
+import Reports from "./Reports";
+import Settings from "./Settings";
 
 import {
   LayoutDashboard,
@@ -16,7 +18,7 @@ import {
   Warehouse,
   MapPin,
   BarChart3,
-  Settings,
+  Settings as SettingsIcon,
   Bell,
   Search
 } from "lucide-react";
@@ -107,13 +109,14 @@ function App() {
 
         </nav>
 
+        {/* Sidebar Bottom */}
         <div className="sidebar-bottom">
 
           <a
             className={`nav-item ${activePage === "Settings" ? "active" : ""}`}
             onClick={() => setActivePage("Settings")}
           >
-            <Settings size={19} />
+            <SettingsIcon size={19} />
             Settings
           </a>
 
@@ -177,6 +180,14 @@ function App() {
         ) : activePage === "Regions" ? (
 
           <Regions />
+
+        ) : activePage === "Reports" ? (
+
+          <Reports />
+
+        ) : activePage === "Settings" ? (
+
+          <Settings />
 
         ) : activePage === "Dashboard" ? (
 
